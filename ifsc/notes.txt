@@ -1,0 +1,5 @@
+url1 = R.string.bankname_url1;
+url2 = R.string.statename_url;
+url3 = R.string.districtname_url + bankName + "&state_name=";
+url4 = R.string.branchname_url + bankName + "&state_name=" + state + "&district_name=";
+url5 = R.string.final_result_url + bankName + "&state_name=" + state + "&district_name=" + district + "&branch_name=";

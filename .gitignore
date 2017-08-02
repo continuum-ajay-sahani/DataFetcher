@@ -1,0 +1,10 @@
+vendor
+*.exe
+*.out
+*.xml
+*.log
+*.db
+cover-all.html
+Build/JunoAlertingService.zip
+Build/JunoAlertingService/
+.vscode
