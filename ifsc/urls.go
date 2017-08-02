@@ -1,6 +1,7 @@
 package ifsc
 
 const (
+	test = ""
 	//CBankNameURL provide all bank names
 	CBankNameURL = "http://jobwale.co.in/bankifsccode_services/ifsc.php"
 	//CBranchNameURL provide all bank branch information
