@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/practice/DataFetcher/ifsc"
+	"github.com/Practice/DataFetcher/ifsc"
 )
 
 func main() {

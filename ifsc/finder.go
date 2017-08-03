@@ -75,8 +75,14 @@ func processBranch(bank, state, disrict string) error {
 }
 
 func processDetail(bank, state, district, branch string) error {
+	detail, err := getDetail(bank, state, district, branch)
+	fmt.Println(err)
+	fmt.Println(detail)
+	if err != nil {
+		return err
+	}
+	return err
 
-	return nil
 }
 
 func getBank() (bnk *output, err error) {
@@ -110,13 +116,15 @@ func getBranch(bankName string, state string, district string) (br *output, err 
 }
 
 func getDetail(bank string, state string, district string, branch string) (detail *output, err error) {
-	bankName = strings.Replace(bankName, " ", "_", -1)
+	bank = strings.Replace(bank, " ", "_", -1)
 	state = strings.Replace(state, " ", "_", -1)
 	district = strings.Replace(district, " ", "_", -1)
 	branch = strings.Replace(branch, " ", "_", -1)
 	url := CFinalResultURL + bank + "&state_name=" + state + "&district_name=" + district + "&branch_name=" + branch
-
+	detail, err = getResponse(url)
+	return detail, err
 }
+
 func getResponse(url string) (out *output, err error) {
 	fmt.Println(url)
 	resp, err := http.Get(url)
