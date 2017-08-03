@@ -3,3 +3,12 @@ url2 = R.string.statename_url;
 url3 = R.string.districtname_url + bankName + "&state_name=";
 url4 = R.string.branchname_url + bankName + "&state_name=" + state + "&district_name=";
 url5 = R.string.final_result_url + bankName + "&state_name=" + state + "&district_name=" + district + "&branch_name=";
+
+
+http://jobwale.co.in/bankifsccode_services/ifsc.phpd(1)
+		go func(bankName string) {
+			processState(bankName)
+			defer wg.Done()
+		}(value)
+	}
+	wg.Wait()

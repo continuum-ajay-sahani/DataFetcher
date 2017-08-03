@@ -1,5 +1,5 @@
 package ifsc
 
-type bank struct {
+type output struct {
 	Result []string `json:"result"`
 }
