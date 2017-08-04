@@ -1,5 +1,5 @@
-hash: c3491a748add4ac02256a237726e5672ad5773c09b4f19fdd0d26ac99c5252b1
-updated: 2017-08-02T07:31:13.923471114+05:30
+hash: 42af3cdef4674b81519a231ccc9f61d910387c7af09814cb1d2c09ee4ed5d98a
+updated: 2017-08-03T21:45:35.380221663+05:30
 imports:
 - name: github.com/dghubble/sling
   version: eb56e89ac5088bebb12eef3cb4b293300f43608b
@@ -7,4 +7,6 @@ imports:
   version: 53e6ce116135b80d037921a7fdd5138cf32d7a8a
   subpackages:
   - query
+- name: github.com/mattn/go-sqlite3
+  version: ca5e3819723d8eeaf170ad510e7da1d6d2e94a08
 testImports: []
