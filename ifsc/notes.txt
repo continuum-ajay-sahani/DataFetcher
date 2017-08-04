@@ -5,12 +5,5 @@ url4 = R.string.branchname_url + bankName + "&state_name=" + state + "&district_
 url5 = R.string.final_result_url + bankName + "&state_name=" + state + "&district_name=" + district + "&branch_name=";
 
 
-http://jobwale.co.in/bankifsccode_services/ifsc.php
-http://jobwale.co.in/bankifsccode_services/state.php?bank_name=ABHYUDAYA_CO-OP_BANK_LTD
-http://jobwale.co.in/bankifsccode_services/district.php?bank_name=ABHYUDAYA_CO-OP_BANK_LTD&state_name=GUJARAT
-http://jobwale.co.in/bankifsccode_services/district.php?bank_name=ABHYUDAYA_CO-OP_BANK_LTD&state_name=GUJARAT&district_name=VADODRA
-http://jobwale.co.in/bankifsccode_services/district.php?bank_name=ABHYUDAYA_CO-OP_BANK_LTD&state_name=GUJARAT&district_name=VADODRA&branch_name=
-
-
 23955
-http://jobwale.co.in/bankifsccode_services/branch.php?bank_name=CANARA_BANK&state_name=KERALA&district_name=KOTTARAKKARA
+bank_name=CANARA_BANK&state_name=KERALA&district_name=KOTTARAKKARA
