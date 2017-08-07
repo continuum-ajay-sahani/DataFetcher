@@ -11,10 +11,10 @@ import (
 
 const (
 	lastBankName     = "INDIAN OVERSEAS BANK"
-	lastStateName    = "GUJARAT"
-	lastDistrictName = "VADODARA"
-	lastBranchName   = "SAYAJIGUNJ"
-	lastCount        = 51013
+	lastStateName    = "KERALA"
+	lastDistrictName = "KOTTAYAM"
+	lastBranchName   = "KOTTAYAM"
+	lastCount        = 51396
 )
 
 var lastBank = false
