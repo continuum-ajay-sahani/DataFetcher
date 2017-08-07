@@ -14,3 +14,5 @@ http://jobwale.co.in/bankifsccode_services/district.php?bank_name=ABHYUDAYA_CO-O
 
 23955
 http://jobwale.co.in/bankifsccode_services/branch.php?bank_name=CANARA_BANK&state_name=KERALA&district_name=KOTTARAKKARA
+
+http://jobwale.co.in/bankifsccode_services/final_result.php?bank_name=CANARA_BANK&state_name=KERALA&district_name=PALAKKAD&branch_name=ALATHUR

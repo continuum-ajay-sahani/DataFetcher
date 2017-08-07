@@ -9,6 +9,19 @@ import (
 	"strings"
 )
 
+const (
+	lastBankName     = "INDIAN OVERSEAS BANK"
+	lastStateName    = "GUJARAT"
+	lastDistrictName = "VADODARA"
+	lastBranchName   = "SAYAJIGUNJ"
+	lastCount        = 51013
+)
+
+var lastBank = false
+var lastState = false
+var lastDistrict = false
+var lastBranch = false
+
 //Ifsc tobe
 type Ifsc struct {
 	dbOp  *DBOperation
@@ -18,7 +31,12 @@ type Ifsc struct {
 //Init tobe
 func (i *Ifsc) Init() (err error) {
 	i.dbOp = &DBOperation{}
-	err = i.dbOp.initDB()
+	//err = i.dbOp.initDB()
+	err = i.dbOp.openDBConn()
+	if err != nil {
+		return err
+	}
+	i.count = lastCount
 	err = i.init()
 	return err
 }
@@ -38,7 +56,13 @@ func (i *Ifsc) init() error {
 	}
 
 	for _, bankName := range bnk.Result {
-		i.processState(bankName)
+		if strings.Compare(bankName, lastBankName) == 0 {
+			lastBank = true
+			fmt.Println("---------Desired Bank------------")
+		}
+		if lastBank {
+			i.processState(bankName)
+		}
 	}
 	return err
 }
@@ -58,7 +82,13 @@ func (i *Ifsc) processState(bankName string) error {
 	}
 
 	for _, state := range sts.Result {
-		i.processDistrict(bankName, state)
+		if strings.Compare(state, lastStateName) == 0 {
+			lastState = true
+			fmt.Println("---------Desired State------------")
+		}
+		if lastState {
+			i.processDistrict(bankName, state)
+		}
 	}
 
 	return err
@@ -78,7 +108,16 @@ func (i *Ifsc) processDistrict(bankName string, state string) error {
 		return err
 	}
 	for _, distName := range dist.Result {
-		i.processBranch(bankName, state, distName)
+		distName = strings.Trim(distName, " ")
+		if strings.Compare(distName, lastDistrictName) == 0 {
+			fmt.Println("---------Desired District------------")
+			lastDistrict = true
+		}
+		if lastDistrict {
+			i.processBranch(bankName, state, distName)
+		} else {
+			fmt.Println("District not found:", bankName, state, distName)
+		}
 	}
 	return err
 }
@@ -97,7 +136,15 @@ func (i *Ifsc) processBranch(bank, state, disrict string) error {
 		return err
 	}
 	for _, branch := range br.Result {
-		i.processDetail(bank, state, disrict, branch)
+		if lastBranch {
+			i.processDetail(bank, state, disrict, branch)
+		} else if strings.Compare(branch, lastBranchName) == 0 {
+			fmt.Println("-------------------Desired Branch -------------------")
+			lastBranch = true
+		} else {
+			fmt.Println(bank, state, disrict, branch)
+		}
+
 	}
 	return err
 }
@@ -105,6 +152,7 @@ func (i *Ifsc) processBranch(bank, state, disrict string) error {
 func (i *Ifsc) processDetail(bank, state, district, branch string) error {
 	detail, res, err := i.getDetail(bank, state, district, branch)
 	if err != nil {
+		fmt.Println(err)
 		return err
 	}
 	bankDetail := i.parseDetails(detail)
@@ -113,7 +161,6 @@ func (i *Ifsc) processDetail(bank, state, district, branch string) error {
 	bankDetail.district = district
 	bankDetail.branch = branch
 	bankDetail.details = res
-
 	i.insertIntoDB(bankDetail)
 	return err
 }

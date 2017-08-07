@@ -4,7 +4,6 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
-	"os"
 	//sqlite using
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -20,7 +19,7 @@ type DBOperation struct {
 }
 
 func (d *DBOperation) initDB() error {
-	os.Remove(CBankDB)
+	//os.Remove(CBankDB)
 
 	db, err := sql.Open("sqlite3", CBankDB)
 	if err != nil {
@@ -31,6 +30,15 @@ func (d *DBOperation) initDB() error {
 	if err != nil {
 		fmt.Println(err)
 		return err
+	}
+	d.db = db
+	return err
+}
+
+func (d *DBOperation) openDBConn() error {
+	db, err := sql.Open("sqlite3", CBankDB)
+	if err != nil {
+		log.Fatal(err)
 	}
 	d.db = db
 	return err
