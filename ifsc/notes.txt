@@ -1,12 +1,1 @@
-url1 = R.string.bankname_url1;
-url2 = R.string.statename_url;
-url3 = R.string.districtname_url + bankName + "&state_name=";
-url4 = R.string.branchname_url + bankName + "&state_name=" + state + "&district_name=";
-url5 = R.string.final_result_url + bankName + "&state_name=" + state + "&district_name=" + district + "&branch_name=";
 
-
-23955
-http://jobwale.co.in/bankifsccode_services/branch.php?bank_name=CANARA_BANK&state_name=KERALA&district_name=KOTTARAKKARA
-
-http://jobwale.co.in/bankifsccode_services/final_result.php?bank_name=CANARA_BANK&state_name=KERALA&district_name=PALAKKAD&branch_name=ALATHUR
-bank_name=CANARA_BANK&state_name=KERALA&district_name=KOTTARAKKARA
